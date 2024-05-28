@@ -1,0 +1,1 @@
+ALTER TABLE "user_metadata" ALTER COLUMN "credits" SET DEFAULT '0';

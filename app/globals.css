@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 147 15% 95%;
+    --foreground: 147 5% 10%;
+    --card: 147 15% 94%;
+    --card-foreground: 147 5% 15%;
+    --popover: 147 15% 95%;
+    --popover-foreground: 147 95% 10%;
+    --primary: 147 58% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 147 15% 90%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 109 15% 94%;
+    --muted-foreground: 147 5% 40%;
+    --accent: 109 15% 90%;
+    --accent-foreground: 147 5% 15%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 147 5% 94%;
+    --border: 147 20% 82%;
+    --input: 147 20% 50%;
+    --ring: 147 58% 46%;
+    --radius: 0.5rem;
+   }
+  .dark {
+    --background: 147 10% 5%;
+    --foreground: 147 0% 90%;
+    --card: 147 0% 5%;
+    --card-foreground: 147 0% 90%;
+    --popover: 147 10% 5%;
+    --popover-foreground: 147 0% 90%;
+    --primary: 147 58% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 147 10% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 109 10% 15%;
+    --muted-foreground: 147 0% 60%;
+    --accent: 109 10% 15%;
+    --accent-foreground: 147 0% 90%;
+    --destructive: 0 50% 30%;
+    --destructive-foreground: 147 0% 90%;
+    --border: 147 20% 18%;
+    --input: 147 20% 18%;
+    --ring: 147 58% 46%;
+    --radius: 0.5rem;
+   }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.highlight {
+  background: linear-gradient(120deg, #6edec4f4 0%, #0fc1b8e3 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 75%;
+}
+
+.markdown {
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+  h3 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  h4 {
+    @apply text-xl font-bold;
+  }
+  h5 {
+    @apply text-lg font-bold;
+  }
+}
