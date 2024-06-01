@@ -146,7 +146,7 @@ export const AnalyseForm = () => {
 
   return (
     <div ref={animationParent} className="grid gap-4">
-      {userSessionData?.user && userSessionData?.user?.guest ? (
+      {!userSessionData?.user ? (
         <Card>
           <CardHeader>
             <CardTitle>Sign In</CardTitle>

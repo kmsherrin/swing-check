@@ -1,4 +1,14 @@
 import { AnalyseForm } from "@/components/analyze-form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Swing Check | Analyze",
+  description:
+    "Get your form dynamically analyzed with AI, receive feedback instantly and improve your game.",
+  icons: {
+    icon: "/swing-check-logo.ico",
+  },
+};
 
 export default function Analyze() {
   return (
@@ -6,7 +16,7 @@ export default function Analyze() {
       <div className="max-w-xl w-full space-y-6">
         <div className="text-left">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            Shot Analysis
+            Swing Analysis
           </h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400">
             Upload a short video of your swing form and we'll analyze it for

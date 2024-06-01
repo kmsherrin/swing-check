@@ -76,7 +76,7 @@ export default function Footer() {
       </div> */}
       <div className="container px-4 md:px-6 text-center text-sm">
         <p>
-          © 2024 Shot Check |{" "}
+          © 2024 Swing Check |{" "}
           <Link
             href="https://www.follow-through-labs.online"
             className="text-primary"

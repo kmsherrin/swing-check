@@ -66,16 +66,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
       <SessionProvider>
-        <GuestSessionProvider>
-          <QueryClientProvider client={queryClient}>
-            <TooltipProvider>
-              <Toaster className="dark:hidden" />
-              <Toaster theme="dark" className="hidden dark:block" />
-              {children}
-              {/* <ModalProvider>{children}</ModalProvider> */}
-            </TooltipProvider>
-          </QueryClientProvider>
-        </GuestSessionProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster className="dark:hidden" />
+            <Toaster theme="dark" className="hidden dark:block" />
+            {children}
+            {/* <ModalProvider>{children}</ModalProvider> */}
+          </TooltipProvider>
+        </QueryClientProvider>
       </SessionProvider>
     </NextThemesProvider>
   );

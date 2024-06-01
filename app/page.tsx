@@ -13,6 +13,9 @@ import {
   Soup,
   TruckIcon,
   Salad,
+  Video,
+  CloudUpload,
+  MessageSquareHeart,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -74,6 +77,51 @@ export default async function Home() {
                   feedback for less than the price of a golf ball.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-tr from-muted to-card">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              How it works
+            </h2>
+            <div className="max-w-3xl">
+              <p className="text-gray-500 dark:text-gray-400">
+                Swing Check uses both traditional video analysis techniques
+                along with AI vision to analyze and generate feedback on your
+                swing form. There's 3 easy steps to get started.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12">
+            <div className="flex flex-col items-center text-center space-y-4">
+              <Video className="h-12 w-12 text-primary" />
+              <h3 className="text-2xl font-bold">Record Video</h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Take a short 3-5 second video of your swing form. Make sure you
+                are well lit and centered in the frame.
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center space-y-4">
+              <CloudUpload className="h-12 w-12 text-primary" />
+              <h3 className="text-2xl font-bold">Upload for Analysis</h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Upload your video into Swing Check and we'll put the AI to work!
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center space-y-4">
+              <MessageSquareHeart className="h-12 w-12 text-primary" />
+              <h3 className="text-2xl font-bold">
+                Receive Assessment and Feedback
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400">
+                Get a rating and detailed feedback on your swing form. Tailored
+                drills will make sure you are on your way to becoming a better
+                golfer.
+              </p>
             </div>
           </div>
         </div>
