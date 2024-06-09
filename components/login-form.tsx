@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -21,6 +22,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { toast } from "sonner";
+import { GoogleLoginButton } from "./custom_ui/google-login-button";
 
 export function LoginForm() {
   const searchParams = useSearchParams();
@@ -39,7 +41,7 @@ export function LoginForm() {
     if (session) {
       const { status } = session;
 
-      if (status === "authenticated" && session?.data?.user?.guest === false) {
+      if (status === "authenticated") {
         // Redirect to the dashboard
         window.location.href = "/account";
       }
@@ -49,34 +51,27 @@ export function LoginForm() {
   console.log(session);
 
   return (
-    <Card className="mx-auto max-w-lg">
-      <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription>
-          Select an authentication method below to login to your account
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="grid gap-4">
-          <Button
-            variant="outline"
-            className="w-full flex gap-2"
-            onClick={() => signIn("google")}
-          >
-            <FaGoogle />
-            <span>Login with Google</span>
-          </Button>
-
-        </div>
-        {/*
-        <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
-          <Link href="#" className="underline">
-            Sign up
-          </Link>
-        </div>
-        */}
-      </CardContent>
-    </Card>
+    <>
+      <Card>
+        <CardHeader>
+          <CardTitle>Sign In</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription>
+            Create an account to start your video analysis!
+          </CardDescription>
+        </CardContent>
+        <CardFooter>
+          <GoogleLoginButton />
+        </CardFooter>
+      </Card>
+      <p className="text-sm text-gray-500 dark:text-gray-500">
+        By creating an account you agree to the{" "}
+        <Link href="/tos" className="text-primary">
+          Swing Check Terms of Service
+        </Link>
+        .
+      </p>
+    </>
   );
 }
