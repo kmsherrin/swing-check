@@ -161,19 +161,29 @@ export const AnalyseForm = () => {
   return (
     <div ref={animationParent} className="grid gap-4">
       {!userSessionData?.user ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>Sign In</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription>
-              Create an account to start your video analysis!
-            </CardDescription>
-          </CardContent>
-          <CardFooter>
-            <GoogleLoginButton />
-          </CardFooter>
-        </Card>
+        <>
+          {" "}
+          <Card>
+            <CardHeader>
+              <CardTitle>Sign In</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>
+                Create an account to start your video analysis!
+              </CardDescription>
+            </CardContent>
+            <CardFooter>
+              <GoogleLoginButton />
+            </CardFooter>
+          </Card>
+          <p className="text-sm text-gray-500 dark:text-gray-500">
+            By creating an account you agree to the{" "}
+            <Link href="/tos" className="text-primary">
+              Swing Check Terms of Service
+            </Link>
+            .
+          </p>
+        </>
       ) : (
         <>
           <div className="flex gap-2 items-center justify-center">
