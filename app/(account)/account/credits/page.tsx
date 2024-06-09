@@ -16,6 +16,7 @@ import { eq } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
 import { loadStripe } from "@stripe/stripe-js";
 import { PaymentHandlerModal } from "@/components/custom_ui/payment_handler_modal";
+import { Metadata } from "next";
 
 async function getData() {
   "use server";
@@ -44,6 +45,15 @@ async function getData() {
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
+
+export const metadata: Metadata = {
+  title: "Swing Check | Credits",
+  description:
+    "Get your swing dynamically analyzed with AI, receive feedback instantly and improve your game.",
+  icons: {
+    icon: "/swing-check-logo.ico",
+  },
+};
 
 export default async function Credits() {
   // get the search params

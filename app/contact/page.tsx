@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Swing Check | Contact Us",
   description: "Question, query, problem? Get in touch with us.",
 };
 

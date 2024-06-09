@@ -35,6 +35,16 @@ import { Badge } from "@/components/ui/badge";
 
 import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Swing Check | Your Videos",
+  description:
+    "Get your swing dynamically analyzed with AI, receive feedback instantly and improve your game.",
+  icons: {
+    icon: "/swing-check-logo.ico",
+  },
+};
 
 async function getData() {
   "use server";
