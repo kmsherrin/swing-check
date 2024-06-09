@@ -29,6 +29,12 @@ export const PaymentHandlerModal = () => {
   useEffect(() => {
     if (success === "true") {
       setSuccessModal(true);
+
+      // get the fbq from the window object
+      const fbq = window.fbq;
+      if (fbq) {
+        fbq("track", "Purchase", {});
+      }
     }
     if (cancelled === "true") {
       setFailedModal(true);
