@@ -209,16 +209,32 @@ export const AnalyseForm = () => {
                     <Button>Purchase credits</Button>
                   </Link> */}
                   <div>
-                    <form method="POST" action="/api/stripe/checkout/">
-                      <input type="hidden" name="creditAmount" value="10" />
-                      <Button type="submit" className="px-40">
-                        Purchase 10 credits for $5
-                      </Button>
-                      <p className="max-w-[600px] text-gray-500 text-sm dark:text-gray-400">
-                        Payments are processed securely by Stripe. You will be
-                        taken to Stripe to complete payment.
-                      </p>
-                    </form>
+                    <div className="flex flex-col gap-4">
+                      <form
+                        method="POST"
+                        action="/api/stripe/checkout/"
+                        className="w-full"
+                      >
+                        <input type="hidden" name="creditAmount" value="5" />
+                        <Button type="submit" className="px-8 md:px-40 w-full">
+                          Purchase 5 credits for $2
+                        </Button>
+                      </form>
+                      <form
+                        method="POST"
+                        action="/api/stripe/checkout/"
+                        className="w-full"
+                      >
+                        <input type="hidden" name="creditAmount" value="20" />
+                        <Button type="submit" className="px-8 md:px-40 w-full">
+                          Purchase 20 credits for $5
+                        </Button>
+                      </form>
+                    </div>
+                    <p className="max-w-[600px] text-gray-500 text-sm dark:text-gray-400">
+                      Payments are processed securely by Stripe. You will be
+                      taken to Stripe to complete payment.
+                    </p>
                   </div>
                 </CardFooter>
               </Card>

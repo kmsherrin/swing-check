@@ -13,17 +13,14 @@ export const dynamic = 'force-dynamic'
 let productMap;
 if (process.env.NEXT_PUBLIC_ENVIRONMENT === "production") {
     productMap = {
-        '10': "price_1PK9zzI34yPL9MVzh5pO2YvC"
+        '5': "price_1PPbX7I34yPL9MVz6Inr57yk",
+        '20': "price_1PPbYLI34yPL9MVz93Cf1Rsd"
     }
 } else {
     productMap = {
         '10': "price_1PKALPI34yPL9MVzsbSPvyHc"
     }
 }
-
-// const productMap = {
-//     '10': "price_1PKALPI34yPL9MVzsbSPvyHc"
-// }
 
 export async function POST(request: Request) {
 

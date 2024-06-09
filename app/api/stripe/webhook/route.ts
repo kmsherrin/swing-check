@@ -29,16 +29,26 @@ export async function POST(request: Request) {
     console.log(event);
     switch (event.type) {
         case 'checkout.session.completed':
-            const checkoutSessionCompleted = event.data.object;
+          const checkoutSessionCompleted = event.data.object;
 
-            console.log(checkoutSessionCompleted.client_reference_id);
+          console.log(checkoutSessionCompleted.client_reference_id);
 
+          if (checkoutSessionCompleted.amount_total === 200) {
+              console.log("5 credits purchased");
+              const userCreditsUpdate = await db
+              .update(userMetadata)
+              .set({ credits: sql`${userMetadata.credits} + ${5}`})
+              .where(eq(userMetadata.userId, checkoutSessionCompleted.client_reference_id))
+          }
+
+          if (checkoutSessionCompleted.amount_total === 500) {
+              console.log("20 credits purchased")
             const userCreditsUpdate = await db
                 .update(userMetadata)
-                .set({ credits: sql`${userMetadata.credits} + ${10}`})
+                .set({ credits: sql`${userMetadata.credits} + ${20}`})
                 .where(eq(userMetadata.userId, checkoutSessionCompleted.client_reference_id))
-            
-            break;
+          }
+          break;
         default:
             console.log(`Unhandled event type ${event.type}`);
     }
