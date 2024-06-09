@@ -12,7 +12,7 @@ export const GoogleLoginButton = () => {
       onClick={() => signIn("google")}
     >
       <FaGoogle />
-      <span>Login with Google</span>
+      <span>Continue with Google</span>
     </Button>
   );
 };
