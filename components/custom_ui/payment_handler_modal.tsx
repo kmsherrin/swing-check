@@ -15,6 +15,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export const PaymentHandlerModal = () => {
   const queryClient = useQueryClient();
@@ -64,7 +65,9 @@ export const PaymentHandlerModal = () => {
             improvements!
           </DialogDescription>
           <DialogFooter>
-            <Button>Go To Analyze Video!</Button>
+            <Link href="/analyze">
+              <Button>Go To Analyzer!</Button>
+            </Link>
           </DialogFooter>
         </DialogContent>
       </Dialog>

@@ -78,7 +78,7 @@ export default async function Credits() {
             credits.
           </p>
           <div>
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col xl:flex-row gap-4">
               <form
                 method="POST"
                 action="/api/stripe/checkout/"
