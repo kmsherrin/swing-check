@@ -26,11 +26,13 @@ export const videoDatabaseEntry = async ({
   isGuest,
   videoPath,
   userEnteredVideoName,
+  additionalData
 }: {
   userId: string;
   isGuest: boolean;
   videoPath: string;
   userEnteredVideoName: string;
+  additionalData: Record<string, any>;
 }) => {
   const projectId = "shot-check";
   const pubsub = new PubSub({ projectId, auth });
@@ -50,6 +52,8 @@ export const videoDatabaseEntry = async ({
       guestUserId: guestUserId,
       videoPath: videoPath,
       originalVideoName: userEnteredVideoName,
+      type: 'swing-check',
+      additionalData: additionalData
     })
     .returning();
 
@@ -73,9 +77,6 @@ export const videoDatabaseEntry = async ({
     .publishMessage({ data: dataBuffer });
 
   console.log(`Pubsub message ID is : ${messageId}`);
-
-  // Subtract 1 from the users metadata credits
-  const userMetadataUpdate = await db.update(userMetadata).set({ credits: sql`${userMetadata.credits} - 1`})
 
   return {
     success: "Video uploaded successfully",

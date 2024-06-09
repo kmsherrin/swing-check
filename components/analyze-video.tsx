@@ -58,30 +58,21 @@ export const AnalyzeVideo = ({
   }, []);
 
   useEffect(() => {
-    if (videoData?.status === "active") {
+    console.log(data?.video_upload?.status);
+
+    if (data?.video_upload?.status === "active") {
       setProgressBarValue(10);
     }
 
-    if (videoData?.status === "analyzing") {
+    if (data?.video_upload?.status === "analyzing") {
       setProgressBarValue(77);
     }
 
-    if (videoData?.status === "completed") {
+    if (data?.video_upload?.status === "completed") {
       setProgressBarValue(100);
       return;
     }
-
-    const timer = setInterval(
-      (progressBarValue) => {
-        if (progressBarValue < 70) {
-          setProgressBarValue((progressBarValue) => progressBarValue + 10);
-        }
-      },
-      Math.random() * 2000 + 1000
-    );
-
-    return () => clearInterval(timer);
-  }, []);
+  }, [data?.video_upload?.status]);
 
   useEffect(() => {
     if (
@@ -119,6 +110,8 @@ export const AnalyzeVideo = ({
     }
   }, [data]);
 
+  console.log(data?.video_upload);
+
   return (
     <>
       <h1 className="text-4xl font-bold tracking-tight">Video Analysis</h1>
@@ -152,7 +145,7 @@ export const AnalyzeVideo = ({
                 </CardContent>
               </Card>
               <p className="text-gray-500 dark:text-gray-500">
-                Please be patient, on average an analysis takes 15 seconds
+                Please be patient, on average an analysis takes 15 - 30 seconds
               </p>
             </>
           )}
@@ -162,7 +155,9 @@ export const AnalyzeVideo = ({
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col">
-                <p>Video: {data?.video_upload?.originalVideoName}</p>
+                <p>
+                  <b>Video</b>: {data?.video_upload?.originalVideoName}
+                </p>
                 {/* {videoFrames &&
                   videoFrames?.map((frame) => {
                     return (
@@ -177,7 +172,7 @@ export const AnalyzeVideo = ({
                     <CardTitle>Overall Rating</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-4xl rounded-full text-center">
+                    <p className="text-4xl rounded-full text-center font-semibold tracking-tight">
                       {data?.analysis_output?.output?.rating}
                     </p>
                   </CardContent>
@@ -207,7 +202,7 @@ export const AnalyzeVideo = ({
               <CardContent>
                 <CardDescription>
                   <Markdown className="markdown">
-                    {data?.analysis_output?.output?.shooting_form_feedback}
+                    {data?.analysis_output?.output?.swing_form_feedback}
                   </Markdown>
                 </CardDescription>
               </CardContent>
@@ -252,6 +247,7 @@ export const AnalyzeVideo = ({
                     {videoFrames?.map((frame, index) => {
                       return (
                         <CarouselItem key={index} className="md:basis-1/2">
+                          <p className="text-xs">Frame: {index + 1}</p>
                           <img
                             className="rounded-md shadow-sm w-full"
                             src={`data:image/png;base64,${frame}`}

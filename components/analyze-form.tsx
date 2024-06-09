@@ -30,6 +30,16 @@ import { useSession } from "next-auth/react";
 
 import { createClient } from "@supabase/supabase-js";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { useRouter } from "next/navigation";
 import { videoDatabaseEntry } from "@/actions/submit_video_to_db";
 import { GoogleLoginButton } from "./custom_ui/google-login-button";
@@ -52,6 +62,7 @@ export const AnalyseForm = () => {
   const [message, formAction] = useFormState(videoSubmission, null);
 
   const [selectedFile, setSelectedFile] = useState<null | File>(null);
+  const [selectedClub, setSelectedClub] = useState<string>("driver");
 
   const [videoTooLarge, setVideoTooLarge] = useState(false);
 
@@ -128,7 +139,12 @@ export const AnalyseForm = () => {
       isGuest: userSessionData?.user?.guest,
       videoPath: data?.path!,
       userEnteredVideoName: selectedFile?.name!,
+      additionalData: {
+        clubUsed: selectedClub,
+      },
     });
+
+    console.log(result);
 
     toast({
       title: "✅ Success",
@@ -141,8 +157,6 @@ export const AnalyseForm = () => {
 
     router.push("/analyze/" + result?.data?.videoId);
   };
-
-  console.log(userCredits);
 
   return (
     <div ref={animationParent} className="grid gap-4">
@@ -275,7 +289,7 @@ export const AnalyseForm = () => {
               ) : (
                 <div className="w-full">
                   <form
-                    className="flex items-center justify-center"
+                    className="flex flex-col items-center justify-center gap-4"
                     action={formAction}
                   >
                     <input
@@ -295,6 +309,42 @@ export const AnalyseForm = () => {
                     />
                     <input hidden name="video_file" value={selectedFile.name} />
                     <input hidden name="video_type" value={selectedFile.type} />
+                    <div className="flex gap-2 items-center">
+                      <label className="font-semibold">Club used:</label>
+
+                      <Select
+                        required
+                        name="club_used"
+                        onValueChange={(e) => setSelectedClub(e)}
+                      >
+                        <SelectTrigger className="w-[180px]">
+                          <SelectValue placeholder="Select a club" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectLabel>Clubs</SelectLabel>
+                            <SelectItem value="driver">Driver</SelectItem>
+                            <SelectItem value="3-wood">3 Wood</SelectItem>
+                            <SelectItem value="5-wood">5 Wood</SelectItem>
+                            <SelectItem value="2-iron">2 Iron</SelectItem>
+                            <SelectItem value="3-iron">3 Iron</SelectItem>
+                            <SelectItem value="4-iron">4 Iron</SelectItem>
+                            <SelectItem value="5-iron">5 Iron</SelectItem>
+                            <SelectItem value="6-iron">6 Iron</SelectItem>
+                            <SelectItem value="7-iron">7 Iron</SelectItem>
+                            <SelectItem value="8-iron">8 Iron</SelectItem>
+                            <SelectItem value="9-iron">9 Iron</SelectItem>
+                            <SelectItem value="pitching-wedge">
+                              Pitch Wedge
+                            </SelectItem>
+                            <SelectItem value="sand-wedge">
+                              Sand Wedge
+                            </SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
                     <Button
                       type="submit"
                       className={`inline-flex items-center justify-center w-full px-6 font-medium h-12 ${!videoTooLarge ? "" : "brightness-50 cursor-not-allowed"}`}

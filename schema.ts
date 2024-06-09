@@ -92,6 +92,8 @@ export const videoUpload = pgTable(
     createdAt: timestamp("createdAt", { mode: "date", withTimezone: true })
       .notNull()
       .default(sql`now()`),
+    type: text("type").notNull().default("shot-check"),
+    additionalData: jsonb("additionalData").notNull().default({}),
   },
   (table) => {
     return {

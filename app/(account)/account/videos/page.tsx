@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { db } from "@/lib/drizzle";
 import { videoUpload, analysisOutput, videoFrames } from "@/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
 import {
   Table,
@@ -56,7 +56,9 @@ async function getData() {
     .select()
     .from(videoUpload)
     .leftJoin(analysisOutput, eq(analysisOutput.videoId, videoUpload.id))
-    .where(eq(videoUpload.userId, user.id))
+    .where(
+      and(eq(videoUpload.userId, user.id), eq(videoUpload.type, "swing-check"))
+    )
     .orderBy(desc(videoUpload.createdAt));
 
   // loop over and get the signedUrl from them

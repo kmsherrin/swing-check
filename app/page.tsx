@@ -74,7 +74,8 @@ export default async function Home() {
                 </Link>
                 <p className="text-sm text-gray-500 dark:text-gray-500">
                   Upload a short video of your swing form and get instant
-                  feedback for less than the price of a golf ball.
+                  feedback for less than the price of a golf ball, no expensive
+                  LIDAR system necessary!
                 </p>
               </div>
             </div>
