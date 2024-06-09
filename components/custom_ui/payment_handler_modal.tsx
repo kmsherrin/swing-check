@@ -35,6 +35,15 @@ export const PaymentHandlerModal = () => {
       if (fbq) {
         fbq("track", "Purchase", {});
       }
+
+      // get the gtag from the window object
+      const gtag = window.gtag;
+      if (gtag) {
+        gtag("event", "purchase", {
+          value: 1.0,
+          currency: "USD",
+        });
+      }
     }
     if (cancelled === "true") {
       setFailedModal(true);
