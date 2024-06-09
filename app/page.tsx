@@ -29,13 +29,13 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="w-full min-h-[80dvh] py-20 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-tr from-secondary to-card">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_700px]">
             <Image
               alt="Hero"
-              quality={90}
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+              quality={95}
+              className="mx-auto aspect-video overflow-hidden rounded-lg object-cover object-center sm:w-full lg:order-last"
               height={300}
-              src="/guy-swinging.jpg"
+              src="/guy-swinging-edited.jpg"
               width={650}
             />
             <div className="flex flex-col justify-center space-y-4">
@@ -69,7 +69,7 @@ export default async function Home() {
                     type="submit"
                     className="animate-pulse font-medium text-lg py-6 px-28 w-full"
                   >
-                    Analyze Shot
+                    Analyze Swing
                   </Button>{" "}
                 </Link>
                 <p className="text-sm text-gray-500 dark:text-gray-500">

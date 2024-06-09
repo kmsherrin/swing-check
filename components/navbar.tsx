@@ -121,26 +121,42 @@ export const Navbar = async () => {
               <span className="sr-only">Logo</span>
             </Link>
 
-            <Link
-              href="/analyze"
-              className="hover:text-foreground flex items-center gap-2"
-            >
-              <Activity /> Analyze Video
-            </Link>
-
-            {session?.user && !session.user.guest ? (
+            <Separator />
+            <div className="flex flex-col gap-8 py-4">
               <Link
-                href="/account/videos"
+                href="/analyze"
                 className="hover:text-foreground flex items-center gap-2"
               >
-                <Video /> Your Videos
+                <Activity /> Analyze Video
               </Link>
-            ) : null}
+
+              {session?.user && !session.user.guest ? (
+                <Link
+                  href="/account/videos"
+                  className="hover:text-foreground flex items-center gap-2"
+                >
+                  <Video /> Your Videos
+                </Link>
+              ) : null}
+            </div>
           </nav>
         </SheetContent>
       </Sheet>
       <span className="md:hidden text-lg min-w-fit font-semibold tracking-tight">
-        Swing Check
+        <Link href="/" className="min-w-fit w-10 h-10 flex gap-2 items-center">
+          <Image
+            className="w-10 h-10 brightness-90 outline"
+            src="/swing-check-logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+          />
+          <span className="sr-only">Logo</span>
+
+          <span className="text-lg min-w-fit font-semibold tracking-tight text-nowrap">
+            Swing Check
+          </span>
+        </Link>
       </span>
 
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">

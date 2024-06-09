@@ -16,7 +16,7 @@ export default async function Contact() {
             </h1>
             <p>
               Question, query, problem? Get in touch with us. Email us at
-              shot.check.app@gmail.com (yes, were still working on a proper
+              shot.check.app@gmail.com (yes, we are still working on a proper
               support email)
             </p>
           </div>
