@@ -27,7 +27,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="w-full min-h-[100dvh] py-20 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-tr from-secondary to-card">
+      <section className="w-full min-h-[80dvh] py-20 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-tr from-secondary to-card">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <Image
