@@ -56,6 +56,35 @@ export default async function Account() {
         </nav>
         <div className="grid gap-6">
           <p>Hi, {userData?.name}</p>
+
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <Link href="/account/videos">
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle>Your Videos</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Find your previous analyzed videos here.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link href="/account/credits">
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle>Credits</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Purchase and add credits to your account, allowing you to
+                    analyze more videos.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </div>
       </div>
     </main>
