@@ -61,7 +61,8 @@ export const PaymentHandlerModal = () => {
           </DialogHeader>
           <DialogDescription className="min-h-20">
             Thank you for your purchase, your credits are being added to your
-            account. Enjoy the coaching and we look forward to your
+            account (if they don&apos;t show up within a minute, please get in
+            contact). Enjoy the coaching and we look forward to your
             improvements!
           </DialogDescription>
           <DialogFooter>
