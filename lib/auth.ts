@@ -1,6 +1,7 @@
 import { Session, getServerSession, type NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
@@ -43,6 +44,11 @@ export const authOptions: NextAuthOptions = {
           image: profile.avatar_url,
         };
       },
+    }),
+
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID as string,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
     }),
 
     CredentialsProvider({

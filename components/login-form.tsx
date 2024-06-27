@@ -23,6 +23,7 @@ import { useEffect } from "react";
 
 import { toast } from "sonner";
 import { GoogleLoginButton } from "./custom_ui/google-login-button";
+import { FacebookLoginButton } from "./custom_ui/facebook-login-button";
 
 export function LoginForm() {
   const searchParams = useSearchParams();
@@ -62,7 +63,10 @@ export function LoginForm() {
           </CardDescription>
         </CardContent>
         <CardFooter>
-          <GoogleLoginButton />
+          <div className="flex flex-col gap-2 w-full">
+            <GoogleLoginButton />
+            <FacebookLoginButton />
+          </div>
         </CardFooter>
       </Card>
       <p className="text-sm text-gray-500 dark:text-gray-500">

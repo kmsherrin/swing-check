@@ -192,7 +192,7 @@ export const Navbar = async () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
             <DropdownMenuSeparator />
             {session && (
               <DropdownMenuItem>
