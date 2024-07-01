@@ -45,6 +45,7 @@ import { videoDatabaseEntry } from "@/actions/submit_video_to_db";
 import { GoogleLoginButton } from "./custom_ui/google-login-button";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { FacebookLoginButton } from "./custom_ui/facebook-login-button";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -172,7 +173,10 @@ export const AnalyseForm = () => {
               </CardDescription>
             </CardContent>
             <CardFooter>
-              <GoogleLoginButton />
+              <div className="flex flex-col gap-2 w-full">
+                <GoogleLoginButton />
+                {/* <FacebookLoginButton /> */}
+              </div>
             </CardFooter>
           </Card>
           <p className="text-sm text-gray-500 dark:text-gray-500">

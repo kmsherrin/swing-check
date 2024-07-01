@@ -25,7 +25,7 @@ export interface ExtendedSession extends Session {
 }
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
