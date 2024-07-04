@@ -14,17 +14,18 @@ let productMap;
 if (process.env.NEXT_PUBLIC_ENVIRONMENT === "production") {
     productMap = {
         '5': "price_1PPbX7I34yPL9MVz6Inr57yk",
-        '20': "price_1PPbYLI34yPL9MVz93Cf1Rsd"
+        '20': "price_1PPbYLI34yPL9MVz93Cf1Rsd",
+        'sub': "price_1PVAQwI34yPL9MVzZx7Z386e"
     }
 } else {
-    productMap = {
-        '10': "price_1PKALPI34yPL9MVzsbSPvyHc"
+      productMap = {
+        '5': "price_1PPbX7I34yPL9MVz6Inr57yk",
+        '20': "price_1PPbYLI34yPL9MVz93Cf1Rsd",
+        'sub': "price_1PVAQwI34yPL9MVzZx7Z386e"
     }
 }
 
 export async function POST(request: Request) {
-
-    console.log(stripe);
 
     if (!stripe) {
         return new Response("Failed to load stripe", { status: 500 });
@@ -35,6 +36,8 @@ export async function POST(request: Request) {
     // get credit amount from form data
     const formData = await request.formData();
     const creditAmount = formData.get("creditAmount");
+
+    console.log(creditAmount)
 
     // get the session;
     const session = await getSession();

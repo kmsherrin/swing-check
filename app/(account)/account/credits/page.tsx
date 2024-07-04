@@ -94,6 +94,16 @@ export default async function Credits() {
                 action="/api/stripe/checkout/"
                 className="w-full"
               >
+                <input type="hidden" name="creditAmount" value="sub" />
+                <Button type="submit" className="px-8 md:px-40 w-full">
+                  Subscribe
+                </Button>
+              </form>
+              <form
+                method="POST"
+                action="/api/stripe/checkout/"
+                className="w-full"
+              >
                 <input type="hidden" name="creditAmount" value="5" />
                 <Button type="submit" className="px-8 md:px-40 w-full">
                   Purchase 5 credits for $2
