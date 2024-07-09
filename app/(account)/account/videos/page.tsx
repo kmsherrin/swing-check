@@ -39,6 +39,7 @@ import { Metadata } from "next";
 import YourVideos from "@/components/your-videos";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { FaSpinner } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "Swing Check | Your Videos",
@@ -110,7 +111,7 @@ export default async function AccountVideos() {
           </Link>
           <Link href="/account/credits">Credits</Link>
         </nav>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<FaSpinner />}>
           <YourVideos />
         </Suspense>
       </div>
