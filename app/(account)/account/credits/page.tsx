@@ -89,7 +89,7 @@ export default async function Credits() {
           </p>
           <div>
             <div className="flex flex-col xl:flex-row gap-4">
-              <form
+              {/* <form
                 method="POST"
                 action="/api/stripe/checkout/"
                 className="w-full"
@@ -98,7 +98,7 @@ export default async function Credits() {
                 <Button type="submit" className="px-8 md:px-40 w-full">
                   Subscribe
                 </Button>
-              </form>
+              </form> */}
               <form
                 method="POST"
                 action="/api/stripe/checkout/"

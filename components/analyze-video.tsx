@@ -17,7 +17,13 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
 
 const getVideoStatus = async (videoId: string) => {
   const response = await fetch(`/api/videoStatus?videoId=${videoId}`);
@@ -249,13 +255,15 @@ export const AnalyzeVideo = ({
                         <CarouselItem key={index} className="md:basis-1/2">
                           <p className="text-xs">Frame: {index + 1}</p>
                           <img
-                            className="rounded-md shadow-sm w-full"
+                            className="rounded-md shadow-sm"
                             src={`data:image/png;base64,${frame}`}
                           />
                         </CarouselItem>
                       );
                     })}
                   </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
                 </Carousel>
               </CardContent>
             </Card>
