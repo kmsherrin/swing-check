@@ -8,6 +8,8 @@ import { Toaster } from "@/components/ui/toaster";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
+import { Suspense } from "react";
+import { FaSpinner } from "react-icons/fa6";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
