@@ -77,78 +77,72 @@ export default async function YourVideos() {
   }
 
   return (
-    <div className="grid gap-6">
-      <Card x-chunk="dashboard-06-chunk-0">
-        <CardHeader>
-          <CardTitle>Videos</CardTitle>
-          <CardDescription>
-            View your past videos and coaching feedback.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px] sm:table-cell">
-                  <span className="sr-only">Image</span>
-                </TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="hidden md:table-cell">
-                  Created At
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {userVideos.map((video, index) => {
-                return (
-                  <TableRow key={index}>
-                    <TableCell>
-                      {video?.signedUrl ? (
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src={`${video?.signedUrl}&width=64`}
-                          width="64"
-                        />
-                      ) : (
-                        <div>X</div>
-                      )}
-                    </TableCell>
-                    <TableCell className="font-medium">
-                      <Link
-                        className="underline"
-                        href={`/analyze/${video?.video_upload.id}`}
-                      >
-                        {video?.video_upload?.originalVideoName}
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        variant="default"
-                        className={`${video?.video_upload?.status === "failed" && "bg-red-500 text-white"} ${video?.video_upload?.status === "completed" && "bg-green-500 text-white"} ${video?.video_upload?.status === "analyzing" && "bg-yellow-500 text-white"} ${video?.video_upload?.status === "active" && "bg-yellow-500 text-white"}`}
-                      >
-                        {video?.video_upload?.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="w-fit hidden md:table-cell">
-                      {new Date(
-                        video?.video_upload?.createdAt
-                      ).toLocaleString()}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </CardContent>
-        <CardFooter>
-          <div className="text-xs text-muted-foreground">
-            Showing <strong>{userVideos.length}</strong> videos
-          </div>
-        </CardFooter>
-      </Card>
-    </div>
+    <Card x-chunk="dashboard-06-chunk-0">
+      <CardHeader>
+        <CardTitle>Videos</CardTitle>
+        <CardDescription>
+          View your past videos and coaching feedback.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px] sm:table-cell">
+                <span className="sr-only">Image</span>
+              </TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="hidden md:table-cell">Created At</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {userVideos.map((video, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>
+                    {video?.signedUrl ? (
+                      <Image
+                        alt="Product image"
+                        className="aspect-square rounded-md object-cover"
+                        height="64"
+                        src={`${video?.signedUrl}&width=64`}
+                        width="64"
+                      />
+                    ) : (
+                      <div>X</div>
+                    )}
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    <Link
+                      className="underline"
+                      href={`/analyze/${video?.video_upload.id}`}
+                    >
+                      {video?.video_upload?.originalVideoName}
+                    </Link>
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      variant="default"
+                      className={`${video?.video_upload?.status === "failed" && "bg-red-500 text-white"} ${video?.video_upload?.status === "completed" && "bg-green-500 text-white"} ${video?.video_upload?.status === "analyzing" && "bg-yellow-500 text-white"} ${video?.video_upload?.status === "active" && "bg-yellow-500 text-white"}`}
+                    >
+                      {video?.video_upload?.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="w-fit hidden md:table-cell">
+                    {new Date(video?.video_upload?.createdAt).toLocaleString()}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </CardContent>
+      <CardFooter>
+        <div className="text-xs text-muted-foreground">
+          Showing <strong>{userVideos.length}</strong> videos
+        </div>
+      </CardFooter>
+    </Card>
   );
 }
