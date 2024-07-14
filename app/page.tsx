@@ -105,6 +105,13 @@ export default async function Home() {
                 Take a short 3-5 second video of your swing form. Make sure you
                 are well lit and centered in the frame.
               </p>
+              <Image
+                alt="friend recording video of golf swing"
+                className="rounded-md brightness-90"
+                src="/images/record-video.png"
+                width={200}
+                height={200}
+              />
             </div>
             <div className="flex flex-col items-center text-center space-y-4">
               <CloudUpload className="h-12 w-12 text-primary" />
@@ -112,6 +119,13 @@ export default async function Home() {
               <p className="text-gray-500 dark:text-gray-400">
                 Upload your video into Swing Check and we'll put the AI to work!
               </p>
+              <Image
+                alt="friend recording video of golf swing"
+                className="rounded-md brightness-90"
+                src="/images/uploading-image.png"
+                width={200}
+                height={200}
+              />
             </div>
             <div className="flex flex-col items-center text-center space-y-4">
               <MessageSquareHeart className="h-12 w-12 text-primary" />
@@ -123,6 +137,13 @@ export default async function Home() {
                 drills will make sure you are on your way to becoming a better
                 golfer.
               </p>
+              <Image
+                alt="friend recording video of golf swing"
+                className="rounded-md brightness-90"
+                src="/images/receive-feedback.png"
+                width={200}
+                height={200}
+              />
             </div>
           </div>
         </div>
