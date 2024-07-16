@@ -7,7 +7,7 @@ export const SignoutButton = () => {
   return (
     <Button
       variant={"secondary"}
-      onClick={() => signOut}
+      onClick={() => signOut()}
       className="h-[22  px] w-full"
     >
       Sign out

@@ -44,7 +44,9 @@ export default function RootLayout({
             <Navbar />
 
             {children}
-            <GoogleAnalytics gaId="G-C9RTHY7JFJ" />
+            {process.env.NODE_ENV === "production" && (
+              <GoogleAnalytics gaId="G-C9RTHY7JFJ" />
+            )}
             <Script>
               {`
                 <script>

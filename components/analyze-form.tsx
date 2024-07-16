@@ -175,7 +175,7 @@ export const AnalyseForm = () => {
             <CardFooter>
               <div className="flex flex-col gap-2 w-full">
                 <GoogleLoginButton />
-                <FacebookLoginButton />
+                {/* <FacebookLoginButton /> */}
               </div>
             </CardFooter>
           </Card>
@@ -189,12 +189,10 @@ export const AnalyseForm = () => {
         </>
       ) : (
         <>
-          <div className="flex gap-2 items-center justify-center">
-            <TriangleAlert className="w-20 text-gray-500" />
+          <div className="flex gap-2 items-center justify-center py-4">
+            <TriangleAlert className="w-20 text-[#bab246] mr-" />
             <p className="my-0 p-0 text-sm text-gray-500 dark:text-gray-400">
-              Due to high-demand, we're currently not providing any free credits
-              to users. We apologise for the inconvience, we hope to provide
-              free analysis again soon! ✌️
+              Due to high-demand, we're limiting analysis to paid credit users.
             </p>
           </div>
 

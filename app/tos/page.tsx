@@ -11,28 +11,28 @@ export default async function TermsOfService() {
               Subject to these Terms of Service (this "Agreement"), Swing Check
               ltd. ("Swing Check", "we", "us" and/or "our") provides access to
               Swing Check's cloud platform as a service, including, without
-              limitation, certain API's (collectively, the "*Services*"). By
-              using or accessing the Services, you acknowledge that you have
+              limitation, certain API's (collectively, the "*Services*"). <br />
+              By using or accessing the Services, you acknowledge that you have
               read, understand, and agree to be bound by this Agreement. If you
               are entering into this Agreement on behalf of a company, business
               or other legal entity, you represent that you have the authority
               to bind such entity to this Agreement, in which case the term
               "you" shall refer to such entity. If you do not have such
               authority, or if you do not agree with this Agreement, you must
-              not accept this Agreement and may not use the Services. IMPORTANT:
-              PLEASE REVIEW THE MUTUAL ARBITRATION AGREEMENT SET FORTH BELOW
-              CAREFULLY, AS IT WILL REQUIRE YOU TO RESOLVE DISPUTES WITH Shot
-              Check ON AN INDIVIDUAL BASIS (WAIVING YOUR RIGHT TO A CLASS
-              ACTION) THROUGH FINAL AND BINDING ARBITRATION. BY ENTERING THIS
-              AGREEMENT, YOU EXPRESSLY ACKNOWLEDGE THAT YOU HAVE READ AND
-              UNDERSTAND ALL OF THE TERMS OF THIS MUTUAL ARBITRATION AGREEMENT
-              AND HAVE TAKEN THE TIME TO CONSIDER THE CONSEQUENCES OF THIS
-              IMPORTANT DECISION. THIS AGREEMENT ALSO CONTAINS RELEASES,
+              not accept this Agreement and may not use the Services.
+              <br /> IMPORTANT: PLEASE REVIEW THE MUTUAL ARBITRATION AGREEMENT
+              SET FORTH BELOW CAREFULLY, AS IT WILL REQUIRE YOU TO RESOLVE
+              DISPUTES WITH Shot Check ON AN INDIVIDUAL BASIS (WAIVING YOUR
+              RIGHT TO A CLASS ACTION) THROUGH FINAL AND BINDING ARBITRATION. BY
+              ENTERING THIS AGREEMENT, YOU EXPRESSLY ACKNOWLEDGE THAT YOU HAVE
+              READ AND UNDERSTAND ALL OF THE TERMS OF THIS MUTUAL ARBITRATION
+              AGREEMENT AND HAVE TAKEN THE TIME TO CONSIDER THE CONSEQUENCES OF
+              THIS IMPORTANT DECISION. THIS AGREEMENT ALSO CONTAINS RELEASES,
               LIMITATIONS ON LIABILITY, AND PROVISIONS ON INDEMNITY AND
               ASSUMPTION OF RISK, ALL OF WHICH MAY LIMIT YOUR LEGAL RIGHTS AND
-              REMEDIES. PLEASE REVIEW THEM CAREFULLY. **1**. Age and
-              Eligibility. You certify that you are a person at least 16 years
-              of age. Services may only be used or accessed through an
+              REMEDIES. PLEASE REVIEW THEM CAREFULLY. <br />
+              1. Age and Eligibility. You certify that you are a person at least
+              16 years of age. Services may only be used or accessed through an
               electronic device controlled by you at all times. A valid Shot
               Check account may only be created and maintained if you provide
               valid information in the signup process, and you regularly update
@@ -40,8 +40,9 @@ export default async function TermsOfService() {
               for maintaining the confidentiality of login information
               associated with your account. Each user must have unique login
               credentials that must not be shared by multiple users. You are
-              responsible for all activities that occur under your account.
-              **2**. Temporary Use License. During the period for which you are
+              responsible for all activities that occur under your account.{" "}
+              <br />
+              2. Temporary Use License. During the period for which you are
               authorized to use the Services, and subject to your compliance
               with the terms of this Agreement, you are granted a personal,
               non-sublicensable, non-exclusive, non-transferable, limited
@@ -53,48 +54,52 @@ export default async function TermsOfService() {
               Swing Check shall own and retain all right, title and interest in
               and to (a) the Services, all improvements, enhancements or
               modifications thereto and (b) all intellectual property rights
-              related to any of the foregoing. **3**. Your Content. You are
-              solely responsible for all software, code, data, information,
-              feedback, suggestions, text, content and other materials that you
-              upload, post, deliver, provide or otherwise transmit or store
-              (hereafter "post(ing)") in connection with or relating to the
-              Services ("Your Content"). You are responsible for maintaining the
-              confidentiality of usernames and passwords associated with your
-              account and for all activities that occur under your account. Shot
-              Check reserves the right to access your account in order to
-              respond to your requests for technical support. By posting Your
-              Content on or through the Services, you grant Swing Check a
-              worldwide, non-exclusive, royalty-free, fully paid, sublicensable
-              and transferable license to use, copy, modify, reproduce,
-              distribute, display, publish, store and perform Your Content only
-              in connection with its provision of the Services and for security
-              to protect the Services and third parties from fraud, malware,
-              malicious files or content, viruses and the like. You further
-              agree that Swing Check may remove or disable any of Your Content
-              at any time for any reason (including, but not limited to, upon
-              receipt of claims or allegations from third-parties or authorities
-              relating to Your Content), or for no reason at all. **4**. 'Free'
-              minutes. We offer free access through crediting of Swing Check
-              platform usage minutes, this is at at our sole discretion. You
-              shall only use the Services under a hobby plan for your personal
-              or non-commercial use. We may change the terms and conditions
-              applicable to the 'free' minutes or discontinue any 'free'
-              minutes. We reserve the right to disable or remove any project or
-              deployments using solely 'free' minutes with or without notice at
-              our sole discretion. We reserve the right to shut down and
-              terminate projects or deployments using solely 'free' minutes
+              related to any of the foregoing. <br />
+              3. Your Content. You are solely responsible for all software,
+              code, data, information, feedback, suggestions, text, content and
+              other materials that you upload, post, deliver, provide or
+              otherwise transmit or store (hereafter "post(ing)") in connection
+              with or relating to the Services ("Your Content"). You are
+              responsible for maintaining the confidentiality of usernames and
+              passwords associated with your account and for all activities that
+              occur under your account. Shot Check reserves the right to access
+              your account in order to respond to your requests for technical
+              support. By posting Your Content on or through the Services, you
+              grant Swing Check a worldwide, non-exclusive, royalty-free, fully
+              paid, sublicensable and transferable license to use, copy, modify,
+              reproduce, distribute, display, publish, store and perform Your
+              Content only in connection with its provision of the Services and
+              for security to protect the Services and third parties from fraud,
+              malware, malicious files or content, viruses and the like. You
+              further agree that Swing Check may remove or disable any of Your
+              Content at any time for any reason (including, but not limited to,
+              upon receipt of claims or allegations from third-parties or
+              authorities relating to Your Content), or for no reason at all.
+              <br />
+              4. 'Free' credits. We offer free access through crediting of Swing
+              Check platform usage minutes, this is at at our sole discretion.
+              You shall only use the Services under a hobby plan for your
+              personal or non-commercial use. We may change the terms and
+              conditions applicable to the 'free' credits or discontinue any
+              'free' credits. We reserve the right to disable or remove any
+              project or deployments using solely 'free' credits with or without
+              notice at our sole discretion. We reserve the right to shut down
+              and terminate projects or deployments using solely 'free' credits
               without notice for any reason or no reason. We may shut down
-              affected projects or deployments using solely 'free' minutes in
+              affected projects or deployments using solely 'free' credits in
               case of any delays or performance problems including, without
               limitation, those caused by a malicious attack on a project or
-              deployments. **5**. Fair Use. We will use commercially reasonable
-              efforts to provide all projects with sufficient bandwidth and
-              serverless function invocations that we determine are typical of
-              projects. We will notify you if your usage is unreasonable, and we
-              may shut down and terminate projects and accounts that are
-              creating an unreasonable burden on our infrastructure and/or
-              business operations, as set forth in Sections 10 and 17.1 below.
-              **6**. Acceptable Use. The Services may only be used for lawful
+              deployments.
+              <br />
+              5. Fair Use. We will use commercially reasonable efforts to
+              provide all projects with sufficient bandwidth and serverless
+              function invocations that we determine are typical of projects. We
+              will notify you if your usage is unreasonable, and we may shut
+              down and terminate projects and accounts that are creating an
+              unreasonable burden on our infrastructure and/or business
+              operations, as set forth in Sections 10 and 17.1 below.
+              <br />
+              6. Acceptable Use. The Services may only be used for lawful
               purposes. You shall not attempt to undermine the security or
               integrity of computing systems or networks of Swing Check, its
               partners, or any other person, and must not attempt to gain
@@ -139,52 +144,57 @@ export default async function TermsOfService() {
               terms or any of Swing Check's policies may result in tracking
               information being stored to identify the offending person, and
               permanent restriction from holding an account on Swing Check's
-              website and Services. **7**. Etiquette. Without limiting any terms
-              of this Agreement, you shall not use the Services for, or in
-              conjunction with, a website (including links from a website) that
-              has any content that may be objectionable (as determined in Swing
-              Check's sole discretion), abusive, profane, hate speech or
-              violates any applicable law. You hereby agree to indemnify and
-              hold Swing Check harmless against any damages, losses,
-              liabilities, settlements and expenses (including without
-              limitation costs and attorneys' fees) in connection with any third
-              party claim or action that arises from an alleged violation of the
-              foregoing or otherwise from your use of Services in a manner not
-              authorized by this Agreement. Although Swing Check has no
-              obligation to monitor your use of the Services, Swing Check may do
-              so and may prohibit any use of the Services it believes may be (or
-              alleged to be) in violation of the foregoing. YO U ACKNOWLEDGE
-              THAT Swing Check MAY DISABLE OR TERMINATE THE SERVICES IF Swing
-              Check BELIEVES THERE IS ANY CONTENT THAT VIOLATES THIS AGREEMENT,
-              INCLUDING THE ACCEPTABLE USE TERMS AND THE RESTRICTIONS ABOVE,
-              PURSUANT TO Swing Check'S DMCA POLICY AND/OR AS REQUIRED BY Swing
-              Check'S HOSTING PROVIDERS. **8**. Security. You shall configure
-              Your Content, including any of your projects or deployments, such
-              that the transmission, storage, or use in any way will not expose
-              personal data or personal information without proper consent from
-              individuals as determined by applicable law. You shall configure
-              the Services in accordance with the Documentation and properly
-              implement encryption as set forth in the Documentation. Swing
-              Check implements regular backups of Your Content and you shall
-              also maintain its own backups of Your Content. **9**. Data
-              Protection. 9.1 International Transfers of Data. To the extent
-              that you have a self-service subscription, and Your Content or
-              Your Data (as defined below) is subject to any applicable data
+              website and Services.
+              <br />
+              7. Etiquette. Without limiting any terms of this Agreement, you
+              shall not use the Services for, or in conjunction with, a website
+              (including links from a website) that has any content that may be
+              objectionable (as determined in Swing Check's sole discretion),
+              abusive, profane, hate speech or violates any applicable law. You
+              hereby agree to indemnify and hold Swing Check harmless against
+              any damages, losses, liabilities, settlements and expenses
+              (including without limitation costs and attorneys' fees) in
+              connection with any third party claim or action that arises from
+              an alleged violation of the foregoing or otherwise from your use
+              of Services in a manner not authorized by this Agreement. Although
+              Swing Check has no obligation to monitor your use of the Services,
+              Swing Check may do so and may prohibit any use of the Services it
+              believes may be (or alleged to be) in violation of the foregoing.
+              YO U ACKNOWLEDGE THAT Swing Check MAY DISABLE OR TERMINATE THE
+              SERVICES IF Swing Check BELIEVES THERE IS ANY CONTENT THAT
+              VIOLATES THIS AGREEMENT, INCLUDING THE ACCEPTABLE USE TERMS AND
+              THE RESTRICTIONS ABOVE, PURSUANT TO Swing Check'S DMCA POLICY
+              AND/OR AS REQUIRED BY Swing Check'S HOSTING PROVIDERS.
+              <br />
+              8. Security. You shall configure Your Content, including any of
+              your projects or deployments, such that the transmission, storage,
+              or use in any way will not expose personal data or personal
+              information without proper consent from individuals as determined
+              by applicable law. You shall configure the Services in accordance
+              with the Documentation and properly implement encryption as set
+              forth in the Documentation. Swing Check implements regular backups
+              of Your Content and you shall also maintain its own backups of
+              Your Content.
+              <br />
+              9. Data Protection. 9.1 International Transfers of Data. To the
+              extent that you have a self-service subscription, and Your Content
+              or Your Data (as defined below) is subject to any applicable data
               protection or privacy law, as defined in Shot Check's Data
               Processing Addendum ("DPA"), and is processed and/or stored by
               Swing Check on your behalf in connection with the Services, you
               agree to the terms of the DPA. If this applies to you, please
               return a signed copy of our DPA at your earliest convenience. 9.2
-              Privacy Policy. Please visit https://Shot Check.cloud/privacy to
+              Privacy Policy. Please visit https://shot check.pro/privacy to
               understand how Swing Check collects and uses your information.
-              **10**. Usage Restrictions. You will not, directly or indirectly:
-              (i) sublicense, resell, rent, lease, transfer, assign, or
-              otherwise commercially exploit or make the Services available to
-              any third party; (ii) reverse engineer, decompile, disassemble or
-              otherwise attempt to discover the source code, object code or
-              underlying structure, ideas, know-how or algorithms relevant to
-              the Services or any software, documentation or data related to the
-              Services (where reverse engineering is permitted by applicable law
+              <br />
+              10. Usage Restrictions. You will not, directly or indirectly: (i)
+              sublicense, resell, rent, lease, transfer, assign, or otherwise
+              commercially exploit or make the Services available to any third
+              party; (ii) reverse engineer, decompile, disassemble or otherwise
+              attempt to discover the source code, object code or underlying
+              structure, ideas, know-how or algorithms relevant to the Services
+              or any software, documentation or data related to the Services
+              (where reverse engineering is permitted by applicable law
               obtaining such information as is necessary to achieve
               interoperability with Swing Check's services, you must first
               request such information from Swing Check); (iii) modify,
