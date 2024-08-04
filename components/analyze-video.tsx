@@ -84,7 +84,11 @@ export const AnalyzeVideo = ({
     }
 
     if (data?.video_upload?.status === "analyzing") {
-      setProgressBarValue(77);
+      setProgressBarValue(60);
+    }
+
+    if (data?.video_upload?.status === "assessing") {
+      setProgressBarValue(70);
     }
 
     if (data?.video_upload?.status === "completed") {
@@ -129,43 +133,68 @@ export const AnalyzeVideo = ({
     }
   }, [data]);
 
-  console.log(JSON.stringify(data?.video_upload));
-  console.log(data?.analysis_output);
   return (
     <>
       <h1 className="text-4xl font-bold tracking-tight">Video Analysis</h1>
+
+      {data?.video_upload?.status === "failed" && (
+        <div>
+          <span className="text-lg flex items-center gap-2 font-medium">
+            Analysis status:{" "}
+            <Badge className="text-lg" variant={"destructive"}>
+              failed
+            </Badge>
+          </span>
+          <p>
+            Unfortunately the analysis failed, this could be due to a number of
+            reasons including the video quality or not being able to identify
+            the golf swing.
+          </p>
+          <p>
+            Please try again, keep the video short and have the golfer well-lit
+            and centered in the frame. A credit has not been deducted from your
+            account.
+          </p>
+        </div>
+      )}
+
       {data?.video_upload?.status !== "completed" ? (
         <>
-          <div>
-            <span className="text-lg flex items-center gap-2 font-medium">
-              Analysis status:{" "}
-              <Badge className="text-lg">
-                {data?.video_upload?.status || "loading"}
-              </Badge>
-            </span>
-          </div>
-          {data?.video_upload?.status && (
+          {data?.video_upload?.status !== "failed" && (
             <>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Result</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Your video is in the queue and is being prepared for
-                    analysis.
-                    <div className="flex flex-col gap-6 justify-center items-center h-52">
-                      {data?.video_upload?.status !== "completed" && (
-                        <Loader2 className="animate-spin w-10 h-10 text-primary" />
-                      )}
-                      <Progress value={progressBarValue} max={100} />
-                    </div>
-                  </CardDescription>
-                </CardContent>
-              </Card>
-              <p className="text-gray-500 dark:text-gray-500">
-                Please be patient, on average an analysis takes 15 - 30 seconds
-              </p>
+              <div>
+                <span className="text-lg flex items-center gap-2 font-medium">
+                  Analysis status:{" "}
+                  <Badge className="text-lg">
+                    {data?.video_upload?.status || "loading"}
+                  </Badge>
+                </span>
+              </div>
+              {data?.video_upload?.status && (
+                <>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Result</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Your video is in the queue and is being prepared for
+                        analysis.
+                        <div className="flex flex-col gap-6 justify-center items-center h-52">
+                          {data?.video_upload?.status !== "completed" && (
+                            <Loader2 className="animate-spin w-10 h-10 text-primary" />
+                          )}
+                          <Progress value={progressBarValue} max={100} />
+                        </div>
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                  <p className="text-gray-500 dark:text-gray-500">
+                    Please be patient, on average an analysis takes 15 - 30
+                    seconds
+                  </p>
+                </>
+              )}
             </>
           )}
         </>
