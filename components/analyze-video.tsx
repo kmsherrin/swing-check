@@ -26,6 +26,17 @@ import {
 } from "./ui/carousel";
 import { RadialChartComponent } from "./sub-components/radial-chart";
 
+const determineScoreColor = (score: number) => {
+  if (score >= 8) {
+    return "hsl(var(--chart-2))";
+  }
+  if (score >= 5) {
+    return "hsl(var(--chart-4))";
+  }
+
+  return "hsl(var(--chart-5))";
+};
+
 const getVideoStatus = async (videoId: string) => {
   const response = await fetch(`/api/videoStatus?videoId=${videoId}`);
   return response.json();
@@ -187,7 +198,9 @@ export const AnalyzeVideo = ({
                 chartData={[
                   {
                     rating: data?.analysis_output?.output?.rating,
-                    fill: "hsl(var(--chart-2))",
+                    fill: determineScoreColor(
+                      data?.analysis_output?.output?.rating
+                    ),
                   },
                 ]}
                 dataKey="rating"
@@ -237,7 +250,9 @@ export const AnalyzeVideo = ({
                           {
                             rating:
                               data?.analysis_output?.output?.backswing_score,
-                            fill: "hsl(var(--chart-2))",
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output?.backswing_score
+                            ),
                           },
                         ]}
                         dataKey="rating"
@@ -256,19 +271,22 @@ export const AnalyzeVideo = ({
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Grip</CardTitle>
+                  <CardTitle>Downswing </CardTitle>
                 </CardHeader>
 
                 <CardContent>
-                  <CardDescription>
+                  <CardDescription className="">
                     <div className="">
                       <RadialChartComponent
                         chartTitle=""
                         chartDescription=""
                         chartData={[
                           {
-                            rating: data?.analysis_output?.output?.grip_score,
-                            fill: "hsl(var(--chart-2))",
+                            rating:
+                              data?.analysis_output?.output?.downswing_score,
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output?.downswing_score
+                            ),
                           },
                         ]}
                         dataKey="rating"
@@ -279,7 +297,7 @@ export const AnalyzeVideo = ({
                       />
                     </div>
                     <Markdown className="markdown">
-                      {data?.analysis_output?.output?.grip_feedback}
+                      {data?.analysis_output?.output?.downswing_feedback}
                     </Markdown>
                   </CardDescription>
                 </CardContent>
@@ -301,7 +319,43 @@ export const AnalyzeVideo = ({
                             rating:
                               data?.analysis_output?.output
                                 ?.follow_through_score,
-                            fill: "hsl(var(--chart-2))",
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output
+                                ?.follow_through_score
+                            ),
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.follow_through_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Grip</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating: data?.analysis_output?.output?.grip_score,
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output?.grip_score
+                            ),
                           },
                         ]}
                         dataKey="rating"
@@ -313,6 +367,73 @@ export const AnalyzeVideo = ({
                     </div>
                     <Markdown className="markdown">
                       {data?.analysis_output?.output?.grip_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Stance</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating: data?.analysis_output?.output?.stance_score,
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output?.stance_score
+                            ),
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.stance_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Posture</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating:
+                              data?.analysis_output?.output?.posture_score,
+                            fill: determineScoreColor(
+                              data?.analysis_output?.output?.posture_score
+                            ),
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.posture_feedback}
                     </Markdown>
                   </CardDescription>
                 </CardContent>
