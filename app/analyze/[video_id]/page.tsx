@@ -80,7 +80,7 @@ export default async function VideoAnalyze({
 
   return (
     <main className="flex flex-col items-center justify-start min-h-screen px-4 py-12 md:px-6 lg:px-8 bg-gradient-to-tr from-muted to-card">
-      <div className="max-w-3xl w-full space-y-6">
+      <div className="max-w-4xl w-full space-y-6">
         {session?.user?.guest ? (
           <div>
             <Card>

@@ -24,6 +24,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import { RadialChartComponent } from "./sub-components/radial-chart";
 
 const getVideoStatus = async (videoId: string) => {
   const response = await fetch(`/api/videoStatus?videoId=${videoId}`);
@@ -47,6 +48,7 @@ export const AnalyzeVideo = ({
   const { data, error, isLoading, refetch } = useQuery({
     queryKey: ["videoData"], // Add the initialData property with the value null
     queryFn: () => getVideoStatus(videoId),
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {
@@ -67,7 +69,7 @@ export const AnalyzeVideo = ({
     console.log(data?.video_upload?.status);
 
     if (data?.video_upload?.status === "active") {
-      setProgressBarValue(10);
+      setProgressBarValue(30);
     }
 
     if (data?.video_upload?.status === "analyzing") {
@@ -116,8 +118,8 @@ export const AnalyzeVideo = ({
     }
   }, [data]);
 
-  console.log(data?.video_upload);
-
+  console.log(JSON.stringify(data?.video_upload));
+  console.log(data?.analysis_output);
   return (
     <>
       <h1 className="text-4xl font-bold tracking-tight">Video Analysis</h1>
@@ -159,10 +161,14 @@ export const AnalyzeVideo = ({
       ) : (
         <>
           <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col">
+            <div className="flex flex-col gap-2 lg:grid lg:grid-cols-3">
+              <div className="flex flex-col col-span-3">
                 <p>
                   <b>Video</b>: {data?.video_upload?.originalVideoName}
+                </p>
+                <p>
+                  <b>Uploaded</b>:{" "}
+                  {new Date(data?.video_upload?.createdAt).toLocaleString()}
                 </p>
                 {/* {videoFrames &&
                   videoFrames?.map((frame) => {
@@ -173,100 +179,202 @@ export const AnalyzeVideo = ({
                       />
                     );
                   })} */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Overall Rating</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-4xl rounded-full text-center font-semibold tracking-tight">
-                      {data?.analysis_output?.output?.rating}
-                    </p>
-                  </CardContent>
-                </Card>
               </div>
 
-              <div>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Swing Kinematics</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <img
-                      className="rounded-md shadow-sm max-h-[600px]"
-                      src={data?.poseSignedUrl}
-                    />
-                  </CardContent>
-                </Card>
-              </div>
+              <RadialChartComponent
+                chartTitle="Rating"
+                chartDescription=""
+                chartData={[
+                  {
+                    rating: data?.analysis_output?.output?.rating,
+                    fill: "hsl(var(--chart-2))",
+                  },
+                ]}
+                dataKey="rating"
+                metric="out of 10"
+                primaryFooter="This rating is an overall score of your swing"
+                secondaryFooter=""
+              />
+
+              <Card className="row-span-2 col-span-2">
+                <CardHeader>
+                  <CardTitle>Swing Kinematics</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <img
+                    className="rounded-md shadow-sm max-h-[600px]"
+                    src={data?.poseSignedUrl}
+                  />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Overall Swing Form Feedback</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.swing_form_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Backswing </CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription className="">
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating:
+                              data?.analysis_output?.output?.backswing_score,
+                            fill: "hsl(var(--chart-2))",
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.backswing_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Grip</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating: data?.analysis_output?.output?.grip_score,
+                            fill: "hsl(var(--chart-2))",
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.grip_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Follow Through</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <div className="">
+                      <RadialChartComponent
+                        chartTitle=""
+                        chartDescription=""
+                        chartData={[
+                          {
+                            rating:
+                              data?.analysis_output?.output
+                                ?.follow_through_score,
+                            fill: "hsl(var(--chart-2))",
+                          },
+                        ]}
+                        dataKey="rating"
+                        metric="out of 10"
+                        primaryFooter=""
+                        secondaryFooter=""
+                        rawChart={true}
+                      />
+                    </div>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.grip_feedback}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card className="col-span-3">
+                <CardHeader>
+                  <CardTitle>Key Improvement Areas</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <Markdown className="markdown">
+                      {
+                        data?.analysis_output?.output
+                          ?.three_key_improvement_areas
+                      }
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card className="col-span-3">
+                <CardHeader>
+                  <CardTitle>Improvement Drills</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>
+                    <Markdown className="markdown">
+                      {data?.analysis_output?.output?.improvement_advice}
+                    </Markdown>
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card className="col-span-3">
+                <CardHeader>
+                  <CardTitle>Key Swing Frames</CardTitle>
+                </CardHeader>
+
+                <CardContent className="px-14">
+                  <Carousel className="">
+                    <CarouselContent>
+                      {videoFrames?.map((frame, index) => {
+                        return (
+                          <CarouselItem key={index} className="md:basis-1/3">
+                            <p className="text-xs">Frame: {index + 1}</p>
+                            <img
+                              className="rounded-md shadow-sm"
+                              src={`data:image/png;base64,${frame}`}
+                            />
+                          </CarouselItem>
+                        );
+                      })}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
+                </CardContent>
+              </Card>
             </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Swing Form Feedback</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <CardDescription>
-                  <Markdown className="markdown">
-                    {data?.analysis_output?.output?.swing_form_feedback}
-                  </Markdown>
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>General Feedback</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <CardDescription>
-                  <Markdown className="markdown">
-                    {data?.analysis_output?.output?.general_feedback}
-                  </Markdown>
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Improvement Drills</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <CardDescription>
-                  <Markdown className="markdown">
-                    {data?.analysis_output?.output?.improvement_advice}
-                  </Markdown>
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Swing Frames</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    {videoFrames?.map((frame, index) => {
-                      return (
-                        <CarouselItem key={index} className="md:basis-1/2">
-                          <p className="text-xs">Frame: {index + 1}</p>
-                          <img
-                            className="rounded-md shadow-sm"
-                            src={`data:image/png;base64,${frame}`}
-                          />
-                        </CarouselItem>
-                      );
-                    })}
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
-                </Carousel>
-              </CardContent>
-            </Card>
           </div>
         </>
       )}

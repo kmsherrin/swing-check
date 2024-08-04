@@ -386,7 +386,8 @@ export const AnalyseForm = () => {
                     >
                       {videoIsUploading ? (
                         <>
-                          <Loader2 className="animate-spin" />
+                          <Loader2 className="animate-spin mx-2" /> Uploading
+                          Video
                         </>
                       ) : (
                         <>
