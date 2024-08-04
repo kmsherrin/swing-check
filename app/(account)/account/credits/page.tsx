@@ -85,7 +85,7 @@ export default async function Credits() {
           <p>Hi, {userData?.user?.name}</p>
           <p>
             You currently have <b>{userData?.user_metadata?.credits}</b>{" "}
-            credits.
+            credits. One credit is used per each swing analysis.
           </p>
           <div>
             <div className="flex flex-col xl:flex-row gap-4">

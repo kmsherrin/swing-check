@@ -145,16 +145,18 @@ export const AnalyzeVideo = ({
               failed
             </Badge>
           </span>
-          <p>
-            Unfortunately the analysis failed, this could be due to a number of
-            reasons including the video quality or not being able to identify
-            the golf swing.
-          </p>
-          <p>
-            Please try again, keep the video short and have the golfer well-lit
-            and centered in the frame. A credit has not been deducted from your
-            account.
-          </p>
+          <div className="flex flex-col gap-4 py-4 max-w-4xl">
+            <p>
+              Unfortunately the analysis failed, this could be due to a number
+              of reasons including the video quality or not being able to
+              identify the golf swing.
+            </p>
+            <p>
+              Please try again, keep the video short and have the golfer
+              well-lit and centered in the frame. A credit has not been deducted
+              from your account.
+            </p>
+          </div>
         </div>
       )}
 

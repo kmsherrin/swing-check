@@ -189,12 +189,12 @@ export const AnalyseForm = () => {
         </>
       ) : (
         <>
-          <div className="flex gap-2 items-center justify-center py-4">
-            <TriangleAlert className="w-20 text-[#bab246] mr-" />
+          <Card className="flex gap-3 items-center justify-center py-4">
+            <TriangleAlert className=" text-[#bab246] mr-" />
             <p className="my-0 p-0 text-sm text-gray-500 dark:text-gray-400">
               Due to high-demand, we're limiting analysis to paid credit users.
             </p>
-          </div>
+          </Card>
 
           <p>
             Current credits:{" "}
@@ -213,6 +213,7 @@ export const AnalyseForm = () => {
                 <CardContent>
                   <CardDescription>
                     You have no credits left, please purchase more to continue.
+                    One credit is used per each swing analysis.
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
